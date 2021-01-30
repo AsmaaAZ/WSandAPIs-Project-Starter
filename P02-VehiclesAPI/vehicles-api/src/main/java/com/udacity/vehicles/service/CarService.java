@@ -72,8 +72,7 @@ public class CarService {
          * meaning the Maps service needs to be called each time for the address.
          * ############### DONE ###########
          */
-        Location l = new Location();
-        c1.setLocation(mapsClient.getAddress(l));
+        c1.setLocation(mapsClient.getAddress(c1.getLocation()));
 
         return c1;
     }
@@ -89,6 +88,7 @@ public class CarService {
                     .map(carToBeUpdated -> {
                         carToBeUpdated.setDetails(car.getDetails());
                         carToBeUpdated.setLocation(car.getLocation());
+                        carToBeUpdated.setCondition(car.getCondition());
                         return repository.save(carToBeUpdated);
                     }).orElseThrow(CarNotFoundException::new);
         }
