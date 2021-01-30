@@ -1,0 +1,42 @@
+package com.udacity.vehicles.config;
+// @author asmaa **
+
+import java.util.Collections;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+  @Bean
+  public Docket api(){
+    return new Docket(DocumentationType.SWAGGER_2)
+        .select()
+        .apis(RequestHandlerSelectors.any())
+        .paths(PathSelectors.any())
+        .build()
+        .useDefaultResponseMessages(false)
+        .apiInfo(apiInfo());
+  }
+
+  private ApiInfo apiInfo(){
+    return new ApiInfo(
+        "Vehicle API",
+        "this api has the functionality for creating a car,"
+            + " updating a car,"
+            + " deleting a car,"
+            + " getting a list of the available cars",
+        "1.1",
+        "no tos applied",
+        new Contact("Asmaa","https://github.com/AsmaaAZ", "asma.a.z.asma@gmail.com"),
+        "License: ","http://www.udacity.com/",
+        Collections.emptyList());
+  }
+}
