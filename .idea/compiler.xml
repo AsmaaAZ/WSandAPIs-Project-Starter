@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="vehicles-api" />
+        <module name="discovery-server" />
         <module name="pricing-service" />
         <module name="boogle-maps" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="15">
       <module name="boogle-maps" target="11" />
+      <module name="discovery-server" target="11" />
       <module name="pricing-service" target="11" />
       <module name="vehicles-api" target="11" />
     </bytecodeTargetLevel>
@@ -20,6 +22,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="boogle-maps" options="-parameters" />
+      <module name="discovery-server" options="-parameters" />
       <module name="pricing-service" options="-parameters" />
       <module name="vehicles-api" options="-parameters" />
     </option>
