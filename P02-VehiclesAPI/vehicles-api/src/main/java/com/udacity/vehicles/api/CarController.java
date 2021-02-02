@@ -33,9 +33,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/cars")
 @ApiResponses(value = {
-    @ApiResponse(code=404, message = "Sorry we cant find what you are looking for"),
-    @ApiResponse(code=500, message = "server is down, check later"),
-    @ApiResponse(code=403,message = "you are not allowed to access this information"),
+    @ApiResponse(code = 404, message = "Sorry we cant find what you are looking for"),
+    @ApiResponse(code = 500, message = "server is down, check later"),
+    @ApiResponse(code = 403,message = "you are not allowed to access this information"),
     @ApiResponse(code = 200, message = "everything is OK"),
     @ApiResponse(code = 204, message = "the operation is done, nothing to show though"),
     @ApiResponse(code = 503, message = "the service you are trying to access is not available now")
@@ -109,6 +109,7 @@ class CarController {
          * TODO: Save the car using the `save` method from the Car service
          * TODO: Use the `assembler` on that updated car and return as part of the response.
          *   Update the first line as part of the above implementing.
+         * ########## DONE ########
          */
         car.setId(id);
         Resource<Car> resource = assembler.toResource(carService.save(car));
@@ -124,6 +125,7 @@ class CarController {
     ResponseEntity<?> delete(@PathVariable Long id) {
         /*
          * TODO: Use the Car Service to delete the requested vehicle.
+         *  ###### DONE #######
          */
         carService.delete(id);
         return ResponseEntity.noContent().build();

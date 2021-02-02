@@ -4,6 +4,7 @@ import com.udacity.pricing.domain.price.Price;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -15,6 +16,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureMockMvc
 public class PricingServiceApplicationTests {
 
 	@LocalServerPort
@@ -25,7 +27,7 @@ public class PricingServiceApplicationTests {
 
 	@Test
 	public void gettingPriceTest() {
-		ResponseEntity<Price> rp = this.restTemplate.getForEntity("http://localhost:" + port + "/service/price?vehicleId=1", Price.class);
+		ResponseEntity<Price> rp = this.restTemplate.getForEntity("http://localhost:" + port + "/services/price?vehicleId=1", Price.class);
 		assertThat(rp.getStatusCode(), equalTo(HttpStatus.OK));
 	}
 
