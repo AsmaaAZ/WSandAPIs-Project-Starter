@@ -37,6 +37,7 @@ import org.springframework.web.bind.annotation.RestController;
     @ApiResponse(code = 500, message = "server is down, check later"),
     @ApiResponse(code = 403,message = "you are not allowed to access this information"),
     @ApiResponse(code = 200, message = "everything is OK"),
+    @ApiResponse(code = 201, message = "car been created :D"),
     @ApiResponse(code = 204, message = "the operation is done, nothing to show though"),
     @ApiResponse(code = 503, message = "the service you are trying to access is not available now")
 })

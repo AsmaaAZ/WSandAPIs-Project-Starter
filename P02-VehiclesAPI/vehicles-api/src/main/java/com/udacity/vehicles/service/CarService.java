@@ -6,6 +6,7 @@ import com.udacity.vehicles.domain.Location;
 import com.udacity.vehicles.domain.car.Car;
 import com.udacity.vehicles.domain.car.CarRepository;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 public class CarService {
     private final CarRepository repository;
     private final MapsClient mapsClient;
+    @Autowired
     private final PriceClient priceClient;
 
     public CarService(CarRepository repository, MapsClient mapsClient, PriceClient priceClient) {
@@ -51,7 +53,6 @@ public class CarService {
          *   Remove the below code as part of your implementation.
          *   ########## DONE ###########
          */
-
         Car c1 = repository.findById(id).orElseThrow(CarNotFoundException::new);
 
         /*
